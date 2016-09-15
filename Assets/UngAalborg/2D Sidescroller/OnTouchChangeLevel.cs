@@ -13,6 +13,9 @@ public class OnTouchChangeLevel : MonoBehaviour
 
         if (other.tag == TagName)
         {
+            PlayerPrefs.SetFloat("CheckPointX", 0);
+            PlayerPrefs.SetFloat("CheckPointY", 0);
+            PlayerPrefs.SetFloat("CheckPointZ", 0);
             SceneManager.LoadScene(SceneNavn);
         }
 

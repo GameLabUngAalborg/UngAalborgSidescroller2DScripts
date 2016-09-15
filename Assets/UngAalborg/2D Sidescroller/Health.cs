@@ -5,7 +5,7 @@ public class Health : MonoBehaviour
 {
 
 	public int Liv = 1; // Sætter liv til at være 1 som standard når man smider scriptet på et object. 
-
+    public int MaxLiv = 3; // Det er hvor meget hans max liv kan være.
 	private bool _invincible = false;  // siger at spilleren ikke er udødelig i starten 
 
 
@@ -49,7 +49,15 @@ public class Health : MonoBehaviour
 
 	public void Heal(int HealingTilSpilleren)
 	{
-		Liv += HealingTilSpilleren;
+       
+            Liv += HealingTilSpilleren;
+            print("Du blev healet med " + HealingTilSpilleren + " liv.");
+            if(Liv > MaxLiv)
+            {
+                Liv = MaxLiv;
+             print("..men du har allerede max liv.");
+            }
+        
 	}
 
 
