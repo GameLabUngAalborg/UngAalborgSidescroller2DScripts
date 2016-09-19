@@ -6,8 +6,11 @@ public class Health : MonoBehaviour
 
 	public int Liv = 1; // Sætter liv til at være 1 som standard når man smider scriptet på et object. 
     public int MaxLiv = 3; // Det er hvor meget hans max liv kan være.
-	private bool _invincible = false;  // siger at spilleren ikke er udødelig i starten 
 
+    [HideInInspector]
+	public bool _invincible = false;  // siger at spilleren ikke er udødelig i starten 
+    [HideInInspector]
+    public bool _damageOnTouch = false; // siger at spilleren ikke giver skade til andre når han rører dem (bruges til starpowerup f.eks.)
 
 	// Use this for initialization
 	void Start () {
@@ -99,6 +102,28 @@ public class Health : MonoBehaviour
 
 
 	}
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Enemy")
+        {
+            if (_invincible && _damageOnTouch)
+            {
+                Destroy(other.gameObject);
+            }
+        }
+    }
+
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if(other.gameObject.tag == "Enemy")
+        {
+            if (_invincible && _damageOnTouch)
+            {
+                Destroy(other.gameObject);
+            }
+        }
+    }
 
 
 	void OnDestroy()
