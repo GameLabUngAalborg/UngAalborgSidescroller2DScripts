@@ -8,8 +8,6 @@ public class DestroyMeWhenTouched : MonoBehaviour {
     public bool MustHaveThisTag;  // Hvis du sætter kryds i denne i inspectoren (at den bliver 'true') så tjekker den om den har "TagName" tagget før den destroyer
     public string TagName = "Player";
 
-
-
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == TagName)
