@@ -29,7 +29,7 @@ public class OnTouchDestroy : MonoBehaviour {
 	{
 		if (other.gameObject.tag == TagName)
 		{
-			Destroy(other.gameObject);
+			Destroy(gameObject);
 		}
 	}
 
@@ -40,7 +40,7 @@ public class OnTouchDestroy : MonoBehaviour {
 
 		if (other.gameObject.tag == TagName)
 		{
-			Destroy(other.gameObject);
+			Destroy(gameObject);
 		}
 
 	}
