@@ -17,6 +17,7 @@ public class DisableAfterSeconds : MonoBehaviour {
         Counter -= Time.deltaTime;
         if(Counter <= 0)
         {
+            Counter = 2;
             gameObject.SetActive(false);
         }      
     }
